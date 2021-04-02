@@ -5,7 +5,7 @@ Saludos a toda la comunidad IMUNES
 
 Como profesor universitario tengo muchos años usando IMUNES como herramienta principal para las enseñanza de la Redes IP. En la Universidad donde trabajo (UPT-Aragua VENEZUELA) hemos realizados muchos proyectos alrededor de IMUNES agregandoles muchas otras aplicaciones, por ahora les comparto las Versión de IMUNES Multi Idiomas Internacionalizada o Localizada como se les dice tambien.
 
-Estoy buscando colaboradores para traducir fidelignamente a IMUNES, en diferentes idiomas preferiblemente Alemán, Francés, Italiano, Croata, Húngaro, Portugués y Ruso. Por consiguiente las personas interezadas deberan ser de la Nacionalidad en cuestion, trabajar en el área y conocer a IMUNES.
+Estoy buscando colaboradores para traducir fidelignamente a IMUNES, en diferentes idiomas preferiblemente Alemán, Francés, Italiano, Croata, Húngaro, Portugués y Ruso. Por consiguiente las personas interesadas deberan ser de la Nacionalidad en cuestion, trabajar en el área y conocer a IMUNES.
 
 Mi correo de contacto es panake2000@gmail.com.
 
@@ -14,13 +14,21 @@ La version utilizada para implementar esta traducción fue: IMUNES v2.3.0
 Con algunas modificaciones en la versión de IMUNES 2.3.0 he internacionalizado imunes en varios idiomas:
 
 Español (Traducción garantizada y confiable)
+
 Alemán (Traducción con la App google Traductor. No garantizada no confiable)
+
 Francés (Traducción con la App google Traductor. No garantizada no confiable)
+
 Croata (Traducción con la App google Traductor. No garantizada no confiable)
+
 Húngaro (Traducción con la App google Traductor. No garantizada no confiable)
+
 Italiano (Traducción con la App google Traductor. No garantizada no confiable)
+
 Portugués (Traducción con la App google Traductor. No garantizada no confiable)
+
 Ruso (Traducción con la App google Traductor. No garantizada no confiable)
+
 
 Dependiendo de la codificación y el Locale del servidor, IMUNES se traduce automáticamente.
 El servidor FreeBSD 12.2 tiene locale es_ES y codificación UTF-8.
