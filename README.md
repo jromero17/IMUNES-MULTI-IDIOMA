@@ -36,42 +36,68 @@ El servidor FreeBSD 12.2 tiene locale es_ES y codificación UTF-8.
 Los archivos levemente modificados son:
 
 Archivos Principales en:
+
 cd /usr/local/lib/imunes/
 
 >gui/canvas.tcl
+
 >gui/drawing.tcl
+
 >gui/initgui.tcl (principal) Botón Menú idioma no funciona. (Por ahora)
->gui/mouse.tcl (Agregadas otras opciones) Apache24, DNS bind 916, DHCP, Terminal Sakura
+
+>gui/mouse.tcl (Agregadas otras opciones) Apache24, DNS bind 916, DHCP, Terminal Sakur
 
 >nodes/click_l2.tcl
+
 >nodes/click_l3.tcl
+
 >nodes/filter.tcl
+
 >nodes/genericrouter.tcl
+
 >nodes/host.tcl
+
 >nodes/hub.tcl
+
 >nodes/ipfirewall.tcl
+
 >nodes/lanswitch.tcl
+
 >nodes/nat64.tcl
+
 >nodes/packgen.tcl
+
 >nodes/rj45.tcl
+
 >stpswitch.tcl
 
 >runtime/eventsched.tcl
+
 
 Las opciones de menú siguientes no fueron traducidas porque aparecía un error porque no se esperaba esa palabra traducida si no la original, ejemplo "Execute": Para corregirlo se necesita editar los archivos drawing.tcl, exec.tcl, initgui.tcl y algún otro que no vi.
 
 Opciones de menú no traducidas
 
 -- Undo
+
 -- Redo
+
 -- Auto rearrange all
+
 -- Auto rearrange selected
+
 -- Routing protocol defaults
+
 -- Execute
+
 -- Terminate (No presenta problemas si se traduce)
+
 -- Restart
+
 -- Start scheduling (opcion de menu relacionada con el archivo eventsched.tcl)
+
 -- Stop scheduling
+
 
 
 
