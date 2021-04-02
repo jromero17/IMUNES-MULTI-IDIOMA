@@ -99,5 +99,30 @@ Opciones de menú no traducidas
 -- Stop scheduling
 
 
+Para la traducción se creo un directorio llamado msgs dentro del directorio /usr/local/lib/imunes/gui/
+
+Este directorio (msgs) contiene los siguientes archivos:
+
+-- de.msg
+
+-- en.msg
+
+-- es.msg
+
+-- fr.msg
+
+-- hr.msg
+
+-- hu.msg
+
+-- it.msg
+
+-- pt.msg
+
+-- ru.msg
+
+Si alguien quiere traducir IMUNES a otro idioma, solo tome como referencia cualquiera de los archivos aqui propuestos y traduzca directamente.
+
+IMUNES se traducirá al idioma que este configurado en el servidor, es decir, el locale en_US, es_ES, es_VE, it_IT, ru_RU entre otros. Es importante que la codificación del servidor sea totalmente UTF-8 para evitar problemas con acentos, tides y la letra ñ.
 
 
