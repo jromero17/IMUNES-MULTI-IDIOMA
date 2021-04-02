@@ -45,7 +45,7 @@ cd /usr/local/lib/imunes/
 
 -- gui/initgui.tcl (principal) Botón Menú idioma no funciona. (Por ahora)
 
--- gui/mouse.tcl (Agregadas otras opciones) Apache24, DNS bind 916, DHCP, Terminal Sakur
+-- gui/mouse.tcl (Agregadas otras opciones) Apache24, DNS bind 916, DHCP, Terminal Sakura
 
 -- nodes/click_l2.tcl
 
