@@ -3,9 +3,9 @@ Repositorio dedicado a la traducción a diferentes idiomas del  Simulador/Emulad
 
 Saludos a toda la comunidad IMUNES
 
-Como profesor universitario tengo muchos años usando IMUNES como herramienta principal para las enseñanza de las Redes IP. En la Universidad donde trabajo (UPT-Aragua VENEZUELA) hemos realizados muchos proyectos alrededor de IMUNES agregandoles muchas otras aplicaciones, por ahora les comparto las Versión de IMUNES Multi Idiomas Internacionalizada o Localizada como se les dice tambien.
+Como profesor universitario tengo muchos años usando IMUNES como herramienta principal para las enseñanza de las Redes IP. En la Universidad donde trabajo (UPT-Aragua VENEZUELA) hemos realizados muchos proyectos alrededor de IMUNES agregandoles muchas otras aplicaciones, por ahora les comparto la Versión de IMUNES Multi Idiomas Internacionalizada o Localizada como se les dice tambien.
 
-Estoy buscando colaboradores para traducir fidelignamente a IMUNES, en diferentes idiomas preferiblemente Alemán, Francés, Italiano, Croata, Húngaro, Portugués y Ruso. Por consiguiente las personas interesadas deberan ser de la Nacionalidad en cuestion, trabajar en el área y conocer a IMUNES.
+Estoy buscando colaboradores para traducir fidelignamente a IMUNES, en diferentes idiomas preferiblemente Alemán, Francés, Italiano, Croata, Húngaro, Portugués y Ruso. Por consiguiente las personas interesadas deberan ser de la Nacionalidad en cuestion, trabajar en el área y conocer a IMUNES preferiblemente, sin embargo, esta abierta la opción para todos.
 
 Mi correo de contacto es panake2000@gmail.com.
 
