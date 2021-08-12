@@ -2,9 +2,12 @@
 
 . scripts/prepare_vroot_functions.sh
 
-PACKAGES_MINIMAL="$PACKAGES_MINIMAL bind916"
-PACKAGES="$PACKAGES_MINIMAL $PACKAGES_COMMON isc-dhcp44-server isc-dhcp44-client \
-    sylpheed xorp firefox wireshark gnome-themes-extra"
+PACKAGES_MINIMAL="$PACKAGES_MINIMAL bind916 bind-tools"
+PACKAGES="$PACKAGES_MINIMAL $PACKAGES_COMMON isc-dhcp44-server isc-dhcp44-client isc-dhcp44-relay \
+    sylpheed xorp netsurf midori firefox wireshark gnome-themes-extra sakura vte3 gdk-pixbuf2 apache24 \
+    php74 mod_php74 php74-mysqli php74-pdo_mysql php74-mbstring php74-zlib php74-curl php74-gd php74-json \
+    php74-extensions php74-xmlrpc php74-bz2 php74-gettext php74-mcrypt php74-openssl \
+    php74-soap php74-imap php74-fileinfo pecl-intl openvpn easy-rsa net-snmp zabbix52-agent zabbix54-agent"
 PACKAGES=`echo $PACKAGES | sed 's/scapy/py37-scapy/'`
 
 checkArgs $*
@@ -42,6 +45,8 @@ configQuagga
 configXorp
 
 wiresharkGUIfix
+
+configzabbix54-agent
 
 cleanUnnecessary
 
