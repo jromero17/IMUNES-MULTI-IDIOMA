@@ -18,8 +18,8 @@ log () {
 # GLOBAL FOR EVERY VERSION
 ##########################
 # directories
-ROOTDIR="."
-LIBDIR=""
+ROOTDIR=/usr/local
+LIBDIR=lib/imunes
 IMUNESDIR=`pwd`
 cd ~
 HOMEDIR=`pwd`
@@ -295,6 +295,37 @@ wiresharkGUIfix () {
     echo "gui.geometry_main_upper_pane: 135" > $VROOT_MASTER/root/.wireshark/recent
     echo "gui.geometry_main_lower_pane: 200" >> $VROOT_MASTER/root/.wireshark/recent
 }
+
+configzabbix54-agent () {
+    if [ -d "$VROOT_MASTER/usr/local/etc/zabbix54/" ]; then
+	cd $VROOT_MASTER/usr/local/etc/zabbix54/
+	cp zabbix_agentd.conf.sample zabbix_agentd.conf
+	export file_agentzabbix=$VROOT_MASTER/usr/local/etc/zabbix54/zabbix_agentd.conf
+	export ipserverzabbix="192.168.1.105"
+	sed -i '' -e "s/^Server=.*/Server=$ipserverzabbix/" $file_agentzabbix
+	touch $VROOT_MASTER/etc/rc.conf
+	echo 'zabbix_agentd_enable="YES"' >> $VROOT_MASTER/etc/rc.conf
+        service zabbix_agentd enable
+	service zabbix_agentd start
+	service zabbix_agentd status
+    else
+	cd $VROOT_MASTER/usr/local/etc/zabbix52/
+	cp zabbix_agentd.conf.sample zabbix_agentd.conf
+	export file_agentzabbix=$VROOT_MASTER/usr/local/etc/zabbix52/zabbix_agentd.conf
+	export ipserverzabbix="192.168.1.105"
+	sed -i '' -e "s/^Server=.*/Server=$ipserverzabbix/" $file_agentzabbix
+	touch $VROOT_MASTER/etc/rc.conf
+	echo 'zabbix_agentd_enable="YES"' >> $VROOT_MASTER/etc/rc.conf
+        service zabbix_agentd enable
+	service zabbix_agentd start
+	service zabbix_agentd status
+
+	log "ERR" "zabbix_agentd not installed in \
+$VROOT_MASTER/usr/local/etc/zabbix54/zabbix_agentd/\nScript aborted."
+	exit 1
+    fi
+}
+
 
 cleanUnnecessary () {
     umount $VROOT_MASTER/dev
