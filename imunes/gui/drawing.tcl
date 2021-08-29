@@ -658,7 +658,7 @@ proc changeIconPopup {} {
     		-width 100 -height 100 -background white]
     pack $prevcan -anchor center
     
-    ttk::label $wi.iconconf.right.l2 -text[mc "Size:"]
+    ttk::label $wi.iconconf.right.l2 -text [mc "Size:"]
     pack $wi.iconconf.right.l2 -anchor center
     
     #left pane definition
@@ -684,7 +684,7 @@ proc changeIconPopup {} {
     
     $tree heading #0 -text [mc "Image name"]
     $tree column #0 -width 100 -minwidth 100 
-    $tree heading type -text "Type" 
+    $tree heading type -text [mc "Type"] 
     $tree column type -width 90 -stretch 0 -minwidth 90
     focus $tree
     
