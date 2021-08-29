@@ -906,6 +906,27 @@ proc button3node { c x y } {
 	    .button3menu add command -label "Web Browser" \
 		-state disabled
 	}
+	# Midori
+	#
+	if {[checkForExternalApps "startxcmd"] == 0 && \
+	    [checkForApplications $node "midori"] == 0} {
+	    .button3menu add command -label "Midori" \
+		-command "startXappOnNode $node \"midori\""
+	} else {
+	    .button3menu add command -label "Midori" \
+		-state disabled
+	}
+	# Netsurf
+	#
+	if {[checkForExternalApps "startxcmd"] == 0 && \
+	    [checkForApplications $node "netsurf-gtk"] == 0} {
+	    .button3menu add command -label "Netsurf" \
+		-command "startXappOnNode $node \"netsurf-gtk\""
+	} else {
+	    .button3menu add command -label "Netsurf" \
+	    -state disabled
+	}
+	#
 	###----------------------------------------------------------------------
 	# SAKURA (Propuesta de implementación)
 	# Terminal Sakura (Se requiere instalar Sakura en imunes vroot)
