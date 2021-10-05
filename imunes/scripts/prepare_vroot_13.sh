@@ -46,7 +46,6 @@ fi
 
 #configQuagga
 #configXorp
-
 mkdir $VROOT_MASTER/usr/local/etc/snmp
 mkdir $VROOT_MASTER/usr/local/etc/openvpn
 mkdir $VROOT_MASTER/usr/local/etc/quagga
