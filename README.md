@@ -125,6 +125,8 @@ Si alguien quiere traducir IMUNES a otro idioma, solo tome como referencia cualq
 
 IMUNES se traducirá al idioma que este configurado en el servidor, es decir, el locale en_US, es_ES, es_VE, it_IT, ru_RU entre otros. Es importante que la codificación del servidor sea totalmente UTF-8 para evitar problemas con acentos, tides y la letra ñ.
 
+### Agregando FRR7 en lugar de Quagga, para FreeBSD 13.0
+
 Para FreeBSD 13.0, se agregó FRR7 en lugar de Quagga, a causa de que éste dejó de funcionar en FreeBSD 13.0, presentando problemas para poder escribir las tablas de rutas en el kernel del sistema operativo.
 
 Usando FRR7 se soluciona el problema. Un ejemplo usando OSPF y una topologia NBMA, funciona tanto usando Quagga en FreeBSD 12.2, y FRR7 en FreeBSD 13.0.
