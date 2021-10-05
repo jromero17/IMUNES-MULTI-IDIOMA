@@ -20,6 +20,7 @@ fi
 checkArgs $*
 
 # Start installation
+
 mkdir -p $WORKDIR
 cd $WORKDIR
 echo -n "" > $LOG
