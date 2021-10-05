@@ -125,4 +125,15 @@ Si alguien quiere traducir IMUNES a otro idioma, solo tome como referencia cualq
 
 IMUNES se traducirá al idioma que este configurado en el servidor, es decir, el locale en_US, es_ES, es_VE, it_IT, ru_RU entre otros. Es importante que la codificación del servidor sea totalmente UTF-8 para evitar problemas con acentos, tides y la letra ñ.
 
+Para FreeBSD 13.0, se agregó FRR7 en lugar de Quagga, a causa de que éste dejó de funcionar en FreeBSD 13.0, presentando problemas para poder escribir las tablas de rutas en el kernel del sistema operativo.
+
+Usando FRR7 se soluciona el problema. Un ejemplo usando OSPF y una topologia NBMA, funciona tanto usando Quagga en FreeBSD 12.2, y FRR7 en FreeBSD 13.0.
+
+FRRouting (FRR) es un conjunto de protocolos de enrutamiento de Internet de código abierto y gratuito para plataformas Linux y Unix. Implementa BGP, OSPF, RIP, IS-IS, PIM, LDP, BFD, Babel, PBR, OpenFabric y VRRP, con soporte alfa para EIGRP y NHRP.
+
+La perfecta integración de FRR con las pilas de redes IP nativas de Linux/Unix lo convierte en una pila de enrutamiento de propósito general aplicable a una amplia variedad de casos de uso, incluida la conexión de hosts/VM/contenedores a la red, publicidad de servicios de red, conmutación y enrutamiento de LAN, enrutadores de acceso a Internet, y peering de Internet.
+
+FRR tiene sus raíces en el proyecto Quagga. De hecho, fue iniciado por muchos desarrolladores de Quagga desde hace mucho tiempo que combinaron sus esfuerzos para mejorar la base bien establecida de Quagga con el fin de crear la mejor pila de protocolos de enrutamiento disponible. Actualmente va por la versión 8.0.
+
+La versión instalada para dar soporte a FreeBSD 13.0 fue frr7-7.5_1. Posteriormente fue compilada para dar soporte a SNMP, que por defecto esta desabilitada.
 
