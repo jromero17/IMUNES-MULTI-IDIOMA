@@ -3,7 +3,7 @@
 . scripts/prepare_vroot_functions.sh
 
 PACKAGES_MINIMAL="$PACKAGES_MINIMAL bind916 bind-tools"
-PACKAGES_MINIMAL=`echo $PACKAGES_MINIMAL | sed 's/quagga/frr8/'`
+PACKAGES_MINIMAL=`echo $PACKAGES_MINIMAL | sed 's/quagga/frr7/'`
 PACKAGES_COMMON=`echo $PACKAGES_COMMON | sed 's/lsof//'`
 PACKAGES="$PACKAGES_MINIMAL $PACKAGES_COMMON isc-dhcp44-server isc-dhcp44-client isc-dhcp44-relay \
     sylpheed xorp netsurf midori firefox wireshark gnome-themes-extra sakura vte3 gdk-pixbuf2 apache24 \
