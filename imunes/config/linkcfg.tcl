@@ -498,6 +498,7 @@ proc setLinkJitterModeUpstream { link value } {
 # RESULT
 #   * jitter_hold -- The jitter hold for upstream direction.
 #****
+
 proc getLinkJitterHoldUpstream { link } {
     upvar 0 ::cf::[set ::curcfg]::$link $link
 
