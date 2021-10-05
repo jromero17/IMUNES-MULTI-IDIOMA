@@ -2,7 +2,7 @@
 namespace import -force msgcat::mcset
 #------------------------------------------
 # Español
-	::msgcat::mcset es "File:" "Archivo:"
+    ::msgcat::mcset es "File:" "Archivo:"
     ::msgcat::mcset es "File" "Archivo"
     ::msgcat::mcset es "Edit" "Editar"
     ::msgcat::mcset es "Canvas" "Canvas"
@@ -14,8 +14,8 @@ namespace import -force msgcat::mcset
     ::msgcat::mcset es "Experiment" "Experimento"
     ::msgcat::mcset es "Help" "Ayuda"
     ::msgcat::mcset es "Idiom" "Idioma"	
-	::msgcat::mcset es "Apply"	"Aplicar"
-	::msgcat::mcset es "Cancel"	"Cancelar"
+    ::msgcat::mcset es "Apply"	"Aplicar"
+    ::msgcat::mcset es "Cancel"	"Cancelar"
 
 #------------------------------------------------
 # Español
@@ -30,15 +30,15 @@ namespace import -force msgcat::mcset
     ::msgcat::mcset es "Change canvas background" 	"Cambiar el fondo del canva"
     ::msgcat::mcset es "Choose background file:" 	"Elija el archivo de fondo"
     ::msgcat::mcset es "Use original/cropped image" 	"Usar imagen original/recortada"	
-	::msgcat::mcset es "Stretch/shrink image"	"Estirar/encoger la imagen"
-	::msgcat::mcset es "Adjust canvas to image"	"Ajustar canvas a imagen"	
-	::msgcat::mcset es "Adjust image to canvas" 	"Ajustar imagen a canvas"
+    ::msgcat::mcset es "Stretch/shrink image"	"Estirar/encoger la imagen"
+    ::msgcat::mcset es "Adjust canvas to image"	"Ajustar canvas a imagen"	
+    ::msgcat::mcset es "Adjust image to canvas" 	"Ajustar imagen a canvas"
     ::msgcat::mcset es "Image alignment:" 	"Alineación de imagenes:"
     ::msgcat::mcset es "Browse" 	"Navegar"
     ::msgcat::mcset es "Remove background" 	"Remover imagen de fondo"
     ::msgcat::mcset es "IPv4 autonumbering" 	"Numeración automática de IPv4"	
-	::msgcat::mcset es "IPv4 address range:"	"Rango de direcciones IPv4:"
-	::msgcat::mcset es "IPv6 autonumbering"	"Numeración automática de IPv6"
+    ::msgcat::mcset es "IPv4 address range:"	"Rango de direcciones IPv4:"
+    ::msgcat::mcset es "IPv6 autonumbering"	"Numeración automática de IPv6"
     ::msgcat::mcset es "IPv6 address range:" 	"Rango de direcciones IPv6:"
     ::msgcat::mcset es "Image:" 	"Imagen:"
     ::msgcat::mcset es "Router Defaults" 	"Router predeterminado"
@@ -154,8 +154,8 @@ namespace import -force msgcat::mcset
     ::msgcat::mcset es "discover" 	"descubrir"
     ::msgcat::mcset es "learn" 	"aprender"
     ::msgcat::mcset es "About IMUNES" 	"Sobre IMUNES"	
-	::msgcat::mcset es "Last changed"	"Último cambio"
-	::msgcat::mcset es "Integrated Multiprotocol Network Emulator/Simulator"	"Emulador/Simulador de red multiprotocolo integrado"	
+    ::msgcat::mcset es "Last changed"	"Último cambio"
+    ::msgcat::mcset es "Integrated Multiprotocol Network Emulator/Simulator"	"Emulador/Simulador de red multiprotocolo integrado"	
 
 #------------------------------------------------
 
