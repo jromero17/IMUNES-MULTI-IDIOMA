@@ -266,7 +266,7 @@ namespace import -force msgcat::mcset
     ::msgcat::mcset hr "English"		"Engleski"
     ::msgcat::mcset hr "Spanish"		"Španjolski"
     ::msgcat::mcset hr "French"			"Francuski"
-	::msgcat::mcset hr "Croata"			"Hrvatska"
+    ::msgcat::mcset hr "Croatian"		"Hrvatska"
     ::msgcat::mcset hr "Hungarian"		"Mađarski"
     ::msgcat::mcset hr "Italian"		"Talijanski"
     ::msgcat::mcset hr "Portuguese"		"Portugalski"
