@@ -32,6 +32,8 @@ Ruso (Traducción con la App google Traductor. No garantizada no confiable)
 
 Dependiendo de la codificación y el Locale del servidor, IMUNES se traduce automáticamente.
 El servidor FreeBSD 12.2 tiene locale es_ES y codificación UTF-8.
+Se agrego un boton para seleccionar el idioma, luego de reiniciar imunes, se presenta el nuevo idioma.
+La opción de traducción automatica se deshabilito, pensando en la preferencia de idioma por parte del usuario.
 
 Los archivos levemente modificados son:
 
@@ -43,7 +45,7 @@ cd /usr/local/lib/imunes/
 
 -- gui/drawing.tcl
 
--- gui/initgui.tcl (principal) Botón Menú idioma no funciona. (Por ahora)
+-- gui/initgui.tcl (principal) Botón Menú idioma funcionando.
 
 -- gui/mouse.tcl (Agregadas otras opciones) Apache24, DNS bind 916, DHCP, Terminal Sakura
 
@@ -123,7 +125,7 @@ Este directorio (msgs) contiene los siguientes archivos:
 
 Si alguien quiere traducir IMUNES a otro idioma, solo tome como referencia cualquiera de los archivos aqui propuestos y traduzca directamente.
 
-IMUNES se traducirá al idioma que este configurado en el servidor, es decir, el locale en_US, es_ES, es_VE, it_IT, ru_RU entre otros. Es importante que la codificación del servidor sea totalmente UTF-8 para evitar problemas con acentos, tides y la letra ñ.
+IMUNES se traducirá al idioma que este configurado en el servidor, es decir, el locale en_US, es_ES, es_VE, it_IT, ru_RU entre otros. Es importante que la codificación del servidor sea totalmente UTF-8 para evitar problemas con acentos, tides y la letra ñ. Ahora es posible cambiar de idioma mediante un botón.
 
 ### Agregando FRR7 en lugar de Quagga, para FreeBSD 13.0
 
