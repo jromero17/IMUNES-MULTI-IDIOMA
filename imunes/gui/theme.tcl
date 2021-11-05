@@ -176,7 +176,6 @@ namespace eval ttk::theme::imunes {
 }
 
 ########### NEW THEME IMUNESDARK ##################
-
 ttk::style theme create imunesdark -parent clam
 
 font create imnDefaultFontdark -family TkDefaultFont -size $defaultFontSize
