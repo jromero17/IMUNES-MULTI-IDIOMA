@@ -98,17 +98,33 @@ namespace import -force ::msgcat::mc
 namespace import -force ::msgcat::mcset
 namespace import -force ::msgcat::*
 
-set language [lindex [split [::msgcat::mclocale] {_}] 0]
+#set language [lindex [split [::msgcat::mclocale] {_}] 0]
+
+set fp [open "/usr/local/lib/imunes/gui/setidioma.txt" r]
+set file_data [read $fp]
+puts "$file_data"
+close $fp
+
+set language "$file_data"
 
 ## FreeBSD 12.2
 if [file isfile "/usr/local/lib/imunes/gui/msgs/${language}.msg" ] {  
 	source "/usr/local/lib/imunes/gui/msgs/${language}.msg"
-	#puts "Existe el archivo: /usr/local/lib/imunes/gui/msgs/${language}.msg"
+	puts "Existe el archivo: /usr/local/lib/imunes/gui/msgs/${language}.msg"
 	::msgcat::mclocale "$language"
 	::msgcat::mcload [file join [file dirname [info script]] msgs]
 } else {
     puts "No existe el archivo en /usr/local/lib/imunes/gui/msgs/${language}.msg"
 }
+#set esta ""
+#set fondomenu [string cat {-background #343434}]
+#set fondomenu "-background #343434"
+#puts -nonewline $fondomenu
+
+#set fondopest [string cat {-background #343434 -foreground white -activebackground #0F7FF2 -activeforeground white}]
+#puts -nonewline $fondopest
+#set fondoactive [string cat {-activebackground #0F7FF2 -activeforeground white}]
+
 
 set newlink ""
 set selectbox ""
@@ -233,7 +249,9 @@ if { $iconlist != "" } {
     eval wm iconphoto . -default $iconlist
 }
 
-ttk::style theme use imunes
+set themeselec imunes
+
+ttk::style theme use $themeselec
 
 ttk::panedwindow .panwin -orient horizontal
 ttk::frame .panwin.f1
@@ -246,20 +264,22 @@ pack propagate .panwin.f2 0
 
 set mf .panwin.f1
 
-menu .menubar
-. configure -menu .menubar
+#menu .menubar
+menu .menubar -background "#343434"
 
-.menubar add cascade -label [mc "File"] -underline 0 -menu .menubar.file
-.menubar add cascade -label [mc "Edit"] -underline 0 -menu .menubar.edit
-.menubar add cascade -label [mc "Canvas"] -underline 0 -menu .menubar.canvas
-.menubar add cascade -label [mc "View"] -underline 0 -menu .menubar.view
-.menubar add cascade -label [mc "Tools"] -underline 0 -menu .menubar.tools
-.menubar add cascade -label [mc "TopoGen"] -underline 4 -menu .menubar.t_g
-.menubar add cascade -label [mc "Widgets"] -underline 0 -menu .menubar.widgets
-.menubar add cascade -label [mc "Events"] -underline 1 -menu .menubar.events
-.menubar add cascade -label [mc "Experiment"] -underline 1 -menu .menubar.experiment
-.menubar add cascade -label [mc "Help"] -underline 0 -menu .menubar.help
-.menubar add cascade -label [mc "Idiom"] -underline 0 -menu .menubar.idiom
+. configure -menu .menubar 
+
+.menubar add cascade -label [mc "File"] -underline 0 -menu .menubar.file -background "#343434" -foreground "white" -activebackground "#0F7FF2" -activeforeground "white"
+.menubar add cascade -label [mc "Edit"] -underline 0 -menu .menubar.edit -background "#343434" -foreground "white" -activebackground "#0F7FF2" -activeforeground "white"
+.menubar add cascade -label [mc "Canvas"] -underline 0 -menu .menubar.canvas -background "#343434" -foreground "white" -activebackground "#0F7FF2" -activeforeground "white"
+.menubar add cascade -label [mc "View"] -underline 0 -menu .menubar.view -background #343434 -foreground white -activebackground #0F7FF2 -activeforeground white
+.menubar add cascade -label [mc "Tools"] -underline 0 -menu .menubar.tools -background #343434 -foreground white -activebackground #0F7FF2 -activeforeground white
+.menubar add cascade -label [mc "TopoGen"] -underline 4 -menu .menubar.t_g -background #343434 -foreground white -activebackground #0F7FF2 -activeforeground white
+.menubar add cascade -label [mc "Widgets"] -underline 0 -menu .menubar.widgets -background #343434 -foreground white -activebackground #0F7FF2 -activeforeground white
+.menubar add cascade -label [mc "Events"] -underline 1 -menu .menubar.events -background #343434 -foreground white -activebackground #0F7FF2 -activeforeground white
+.menubar add cascade -label [mc "Experiment"] -underline 1 -menu .menubar.experiment -background #343434 -foreground white -activebackground #0F7FF2 -activeforeground white
+.menubar add cascade -label [mc "Help"] -underline 0 -menu .menubar.help -background #343434 -foreground white -activebackground #0F7FF2 -activeforeground white
+.menubar add cascade -label [mc "Idiom"] -underline 0 -menu .menubar.idiomas -background #343434 -foreground white -activebackground #0F7FF2 -activeforeground white
 
 
 #
@@ -267,25 +287,25 @@ menu .menubar
 #
 menu .menubar.file -tearoff 0
 
-.menubar.file add command -label [mc "New"] -underline 0 \
+.menubar.file add command -label [mc "New"] -underline 0 -activebackground #0F7FF2 -activeforeground white \
   -accelerator "Ctrl+N" -command { newProject }
 bind . <Control-n> "newProject"
 
-.menubar.file add command -label [mc "Open"] -underline 0 \
+.menubar.file add command -label [mc "Open"] -underline 0 -activebackground #0F7FF2 -activeforeground white \
   -accelerator "Ctrl+O" -command { fileOpenDialogBox }
 bind . <Control-o> "fileOpenDialogBox"
 
-.menubar.file add command -label [mc "Save"] -underline 0 \
+.menubar.file add command -label [mc "Save"] -underline 0 -activebackground #0F7FF2 -activeforeground white \
   -accelerator "Ctrl+S" -command { fileSaveDialogBox }
 bind . <Control-s> "fileSaveDialogBox"
 
-.menubar.file add command -label [mc "Save As"] -underline 5 \
+.menubar.file add command -label [mc "Save As"] -underline 5 -activebackground #0F7FF2 -activeforeground white \
   -command { fileSaveAsDialogBox }
 
-.menubar.file add command -label [mc "Close"] -underline 0 -command { closeFile }
+.menubar.file add command -label [mc "Close"] -underline 0 -command { closeFile } -activebackground #0F7FF2 -activeforeground white
 
 .menubar.file add separator
-.menubar.file add command -label [mc "Print"] -underline 0 \
+.menubar.file add command -label [mc "Print"] -underline 0 -activebackground #0F7FF2 -activeforeground white \
   -command {
     set w .entry1
     catch {destroy $w}
@@ -315,7 +335,7 @@ bind . <Control-s> "fileSaveDialogBox"
 
 set printFileType ps
 
-.menubar.file add command -label [mc "Print To File"] -underline 9 \
+.menubar.file add command -label [mc "Print To File"] -underline 9 -activebackground #0F7FF2 -activeforeground white \
   -command {
     global winOS
     set w .entry1
@@ -374,7 +394,7 @@ set printFileType ps
 }
 
 .menubar.file add separator
-.menubar.file add command -label [mc "Quit"] -underline 0 -command { exit }
+.menubar.file add command -label [mc "Quit"] -underline 0 -command { exit } -activebackground #0F7FF2 -activeforeground white
 .menubar.file add separator
 
 
@@ -382,27 +402,27 @@ set printFileType ps
 # Edit
 #
 menu .menubar.edit -tearoff 0
-.menubar.edit add command -label "Undo" -underline 0 \
+.menubar.edit add command -label "Undo" -underline 0 -activebackground #0F7FF2 -activeforeground white \
     -accelerator "Ctrl+Z" -command undo -state disabled
 bind . <Control-z> undo
-.menubar.edit add command -label "Redo" -underline 0 \
+.menubar.edit add command -label "Redo" -underline 0 -activebackground #0F7FF2 -activeforeground white \
     -accelerator "Ctrl+Y" -command redo -state disabled
 bind . <Control-y> redo
 .menubar.edit add separator
-.menubar.edit add command -label [mc "Cut"] -underline 0 \
+.menubar.edit add command -label [mc "Cut"] -underline 0 -activebackground #0F7FF2 -activeforeground white \
     -accelerator "Ctrl+X" -command cutSelection -state normal
 bind . <Control-x> cutSelection
-.menubar.edit add command -label [mc "Copy"] -underline 1 \
+.menubar.edit add command -label [mc "Copy"] -underline 1 -activebackground #0F7FF2 -activeforeground white \
     -accelerator "Ctrl+C" -command copySelection -state normal
 bind . <Control-c> copySelection
-.menubar.edit add command -label [mc "Paste"] -underline 0 \
+.menubar.edit add command -label [mc "Paste"] -underline 0 -activebackground #0F7FF2 -activeforeground white \
     -accelerator "Ctrl+V" -command paste -state normal
 bind . <Control-v> paste
 .menubar.edit add separator
-.menubar.edit add command -label [mc "Select all"] \
+.menubar.edit add command -label [mc "Select all"] -activebackground #0F7FF2 -activeforeground white \
     -accelerator "Ctrl+A" -underline 0 -command "selectAllObjects"
 bind . <Control-a> selectAllObjects
-.menubar.edit add command -label [mc "Select adjacent"] \
+.menubar.edit add command -label [mc "Select adjacent"] -activebackground #0F7FF2 -activeforeground white \
     -accelerator "Ctrl+D" -underline 7 -command selectAdjacent
 bind . <Control-d> selectAdjacent
 
@@ -410,15 +430,15 @@ bind . <Control-d> selectAdjacent
 # Canvas
 #
 menu .menubar.canvas -tearoff 0
-.menubar.canvas add command -label [mc "New"] -underline 0 -command {
+.menubar.canvas add command -label [mc "New"] -underline 0 -activebackground #0F7FF2 -activeforeground white -command {
     newCanvas ""
     switchCanvas last
     set changed 1
     updateUndoLog
 }
-.menubar.canvas add command -label [mc "Rename"] -underline 0 \
+.menubar.canvas add command -label [mc "Rename"] -underline 0 -activebackground #0F7FF2 -activeforeground white \
 -command { renameCanvasPopup }
-.menubar.canvas add command -label [mc "Delete"] -underline 0 -command {
+.menubar.canvas add command -label [mc "Delete"] -underline 0 -activebackground #0F7FF2 -activeforeground white -command {
     upvar 0 ::cf::[set ::curcfg]::canvas_list canvas_list
     upvar 0 ::cf::[set ::curcfg]::curcanvas curcanvas
 
@@ -440,21 +460,21 @@ menu .menubar.canvas -tearoff 0
     updateUndoLog
 }
 .menubar.canvas add separator
-.menubar.canvas add command -label [mc "Resize"] -underline 2 -command resizeCanvasPopup
-.menubar.canvas add command -label [mc "Background image"] -underline 0 \
+.menubar.canvas add command -label [mc "Resize"] -underline 2 -command resizeCanvasPopup -activebackground #0F7FF2 -activeforeground white
+.menubar.canvas add command -label [mc "Background image"] -underline 0 -activebackground #0F7FF2 -activeforeground white \
     -command changeBkgPopup
 
 .menubar.canvas add separator
-.menubar.canvas add command -label [mc "Previous"] -accelerator "PgUp" \
+.menubar.canvas add command -label [mc "Previous"] -accelerator "PgUp" -activebackground #0F7FF2 -activeforeground white \
     -command { switchCanvas prev }
 bind . <Prior> { switchCanvas prev }
-.menubar.canvas add command -label [mc "Next"] -accelerator "PgDown" \
+.menubar.canvas add command -label [mc "Next"] -accelerator "PgDown" -activebackground #0F7FF2 -activeforeground white \
     -command { switchCanvas next }
 bind . <Next> { switchCanvas next }
-.menubar.canvas add command -label [mc "First"] -accelerator [mc "Home"] \
+.menubar.canvas add command -label [mc "First"] -accelerator [mc "Home"] -activebackground #0F7FF2 -activeforeground white \
     -command { switchCanvas first }
 bind . <Home> { switchCanvas first }
-.menubar.canvas add command -label [mc "Last"] -accelerator [mc "End"] \
+.menubar.canvas add command -label [mc "Last"] -accelerator [mc "End"] -activebackground #0F7FF2 -activeforeground white \
     -command { switchCanvas last }
 bind . <End> { switchCanvas last }
 
@@ -463,24 +483,24 @@ bind . <End> { switchCanvas last }
 # Tools
 #
 menu .menubar.tools -tearoff 0
-.menubar.tools add command -label "Auto rearrange all" -underline 0 \
+.menubar.tools add command -label "Auto rearrange all" -underline 0 -activebackground #0F7FF2 -activeforeground white \
     -command { rearrange all }
-.menubar.tools add command -label "Auto rearrange selected" -underline 15 \
+.menubar.tools add command -label "Auto rearrange selected" -underline 15 -activebackground #0F7FF2 -activeforeground white \
     -command { rearrange selected }
 .menubar.tools add separator
-.menubar.tools add command -label [mc "Align to grid"] -underline 9 \
+.menubar.tools add command -label [mc "Align to grid"] -underline 9 -activebackground #0F7FF2 -activeforeground white \
     -command { align2grid }
 .menubar.tools add separator
-.menubar.tools add checkbutton -label [mc "IPv4 auto-assign addresses/routes"]  \
+.menubar.tools add checkbutton -label [mc "IPv4 auto-assign addresses/routes"]  -activebackground #0F7FF2 -activeforeground white \
     -variable IPv4autoAssign
-.menubar.tools add checkbutton -label [mc "IPv6 auto-assign addresses/routes"]  \
+.menubar.tools add checkbutton -label [mc "IPv6 auto-assign addresses/routes"]  -activebackground #0F7FF2 -activeforeground white \
     -variable IPv6autoAssign
-.menubar.tools add checkbutton -label [mc "Auto-generate /etc/hosts file"]  \
+.menubar.tools add checkbutton -label [mc "Auto-generate /etc/hosts file"]  -activebackground #0F7FF2 -activeforeground white \
     -variable hostsAutoAssign
 .menubar.tools add separator
-.menubar.tools add command -label [mc "Randomize MAC bytes"] -underline 10 \
+.menubar.tools add command -label [mc "Randomize MAC bytes"] -underline 10 -activebackground #0F7FF2 -activeforeground white \
     -command randomizeMACbytes
-.menubar.tools add command -label [mc "IPv4 address pool"] -underline 3 \
+.menubar.tools add command -label [mc "IPv4 address pool"] -underline 3 -activebackground #0F7FF2 -activeforeground white \
     -command {
     set w .entry1
     catch {destroy $w}
@@ -515,7 +535,7 @@ menu .menubar.tools -tearoff 0
     pack $w.ipv4frame.buttons.apply -side left -expand 1 -anchor e -padx 2
     pack $w.ipv4frame.buttons.cancel -side right -expand 1 -anchor w -padx 2
 }
-.menubar.tools add command -label [mc "IPv6 address pool"] -underline 3 \
+.menubar.tools add command -label [mc "IPv6 address pool"] -underline 3 -activebackground #0F7FF2 -activeforeground white \
     -command {
     set w .entry1
     catch {destroy $w}
@@ -549,7 +569,7 @@ menu .menubar.tools -tearoff 0
     pack $w.ipv6frame.buttons.apply -side left -expand 1 -anchor e -padx 2
     pack $w.ipv6frame.buttons.cancel -side right -expand 1 -anchor w -padx 2
 }
-.menubar.tools add command -label "Routing protocol defaults" -underline 0 -command {
+.menubar.tools add command -label "Routing protocol defaults" -underline 0 -activebackground #0F7FF2 -activeforeground white -command {
     upvar 0 ::cf::[set ::curcfg]::curcanvas curcanvas
     upvar 0 ::cf::[set ::curcfg]::oper_mode oper_mode
     global router_model supp_router_models routerDefaultsModel
@@ -686,24 +706,24 @@ menu .menubar.view -tearoff 0
 
 set m .menubar.view.iconsize
 menu $m -tearoff 0
-.menubar.view add cascade -label [mc "Icon size"] -menu $m -underline 5
-    $m add radiobutton -label [mc "Small"] -variable iconSize \
+.menubar.view add cascade -label [mc "Icon size"] -menu $m -underline 5 -activebackground #0F7FF2 -activeforeground white
+    $m add radiobutton -label [mc "Small"] -variable iconSize -activebackground #0F7FF2 -activeforeground white \
 	-value small -command { updateIconSize; redrawAll }
-    $m add radiobutton -label [mc "Normal"] -variable iconSize \
+    $m add radiobutton -label [mc "Normal"] -variable iconSize -activebackground #0F7FF2 -activeforeground white \
 	-value normal -command { updateIconSize; redrawAll }
 
 .menubar.view add separator
 
-.menubar.view add checkbutton -label [mc "Show Interface Names"] \
+.menubar.view add checkbutton -label [mc "Show Interface Names"] -activebackground #0F7FF2 -activeforeground white \
     -underline 5 -variable showIfNames \
     -command { redrawAllLinks }
-.menubar.view add checkbutton -label [mc "Show IPv4 Addresses"] \
+.menubar.view add checkbutton -label [mc "Show IPv4 Addresses"] -activebackground #0F7FF2 -activeforeground white \
     -underline 8 -variable showIfIPaddrs \
     -command { redrawAllLinks }
-.menubar.view add checkbutton -label [mc "Show IPv6 Addresses"] \
+.menubar.view add checkbutton -label [mc "Show IPv6 Addresses"] -activebackground #0F7FF2 -activeforeground white \
     -underline 8 -variable showIfIPv6addrs \
     -command { redrawAllLinks }
-.menubar.view add checkbutton -label [mc "Show Node Labels"] \
+.menubar.view add checkbutton -label [mc "Show Node Labels"] -activebackground #0F7FF2 -activeforeground white \
     -underline 5 -variable showNodeLabels -command {
     foreach object [.panwin.f1.c find withtag nodelabel] {
 	if { $showNodeLabels } {
@@ -713,7 +733,7 @@ menu $m -tearoff 0
 	}
     }
 }
-.menubar.view add checkbutton -label [mc "Show Link Labels"] \
+.menubar.view add checkbutton -label [mc "Show Link Labels"] -activebackground #0F7FF2 -activeforeground white \
     -underline 5 -variable showLinkLabels -command {
     foreach object [.panwin.f1.c find withtag linklabel] {
 	if { $showLinkLabels } {
@@ -724,7 +744,7 @@ menu $m -tearoff 0
     }
 }
 
-.menubar.view add command -label [mc "Show All"] \
+.menubar.view add command -label [mc "Show All"] -activebackground #0F7FF2 -activeforeground white \
     -underline 5 -command {
 	set showIfNames 1
 	set showIfIPaddrs 1
@@ -736,7 +756,7 @@ menu $m -tearoff 0
 	    .panwin.f1.c itemconfigure $object -state normal
 	}
     }
-.menubar.view add command -label [mc "Show None"] \
+.menubar.view add command -label [mc "Show None"] -activebackground #0F7FF2 -activeforeground white \
     -underline 6 -command {
 	set showIfNames 0
 	set showIfIPaddrs 0
@@ -755,28 +775,28 @@ menu $m -tearoff 0
 #    -variable showZFSsnapshots
 
 #.menubar.view add separator
-.menubar.view add checkbutton -label [mc "Show Topology Tree"] \
+.menubar.view add checkbutton -label [mc "Show Topology Tree"] -activebackground #0F7FF2 -activeforeground white \
     -variable showTree -underline 5 \
     -command { topologyElementsTree }
 
 .menubar.view add separator
 
-.menubar.view add checkbutton -label [mc "Show Background Image"] \
+.menubar.view add checkbutton -label [mc "Show Background Image"] -activebackground #0F7FF2 -activeforeground white \
     -underline 5 -variable showBkgImage \
     -command { redrawAll }
-.menubar.view add checkbutton -label [mc "Show Annotations"] \
+.menubar.view add checkbutton -label [mc "Show Annotations"] -activebackground #0F7FF2 -activeforeground white \
     -underline 8 -variable showAnnotations \
     -command { redrawAll }
-.menubar.view add checkbutton -label [mc "Show Grid"] \
+.menubar.view add checkbutton -label [mc "Show Grid"] -activebackground #0F7FF2 -activeforeground white \
     -underline 5 -variable showGrid \
     -command { redrawAll }
 
 
 .menubar.view add separator
-.menubar.view add command -label [mc "Zoom In"] -accelerator "+" \
+.menubar.view add command -label [mc "Zoom In"] -accelerator "+" -activebackground #0F7FF2 -activeforeground white \
     -command "zoom up"
 bind . "+" "zoom up"
-.menubar.view add command -label [mc "Zoom Out"] -accelerator "-" \
+.menubar.view add command -label [mc "Zoom Out"] -accelerator "-" -activebackground #0F7FF2 -activeforeground white \
      -command "zoom down"
 bind . "-" "zoom down"
 
@@ -786,28 +806,29 @@ bind . "-" "zoom down"
 set m .menubar.view.themes
 menu $m -tearoff 0
 set currentTheme imunes
-.menubar.view add cascade -label [mc "Themes"] -menu $m
-    $m add radiobutton -label "alt" -variable currentTheme \
+.menubar.view add cascade -label [mc "Themes"] -menu $m -activebackground #0F7FF2 -activeforeground white
+    $m add radiobutton -label "alt" -variable currentTheme -activebackground #0F7FF2 -activeforeground white \
 	-value alt -command "ttk::style theme use alt"
-    $m add radiobutton -label "classic" -variable currentTheme\
+    $m add radiobutton -label "classic" -variable currentTheme -activebackground #0F7FF2 -activeforeground white \
 	-value classic -command "ttk::style theme use classic"
-    $m add radiobutton -label "default" -variable currentTheme\
+    $m add radiobutton -label "default" -variable currentTheme -activebackground #0F7FF2 -activeforeground white \
 	-value default -command "ttk::style theme use default"
-    $m add radiobutton -label "clam" -variable currentTheme\
+    $m add radiobutton -label "clam" -variable currentTheme -activebackground #0F7FF2 -activeforeground white \
 	-value clam -command "ttk::style theme use clam"
-    $m add radiobutton -label "imunes" -variable currentTheme\
+    $m add radiobutton -label "imunes" -variable currentTheme -activebackground #0F7FF2 -activeforeground white \
 	-value imunes -command "ttk::style theme use imunes"
-
+	$m add radiobutton -label "imunesdark" -variable currentTheme -activebackground #0F7FF2 -activeforeground white \
+	-value imunesdark -command "ttk::style theme use imunesdark"
 
 #
-# Show
+# Show Widgets
 #
 menu .menubar.widgets
 global showConfig
 set showConfig "None"
 global lastObservedNode
 set lastObservedNode ""
-.menubar.widgets add radiobutton -label [mc "None"] \
+.menubar.widgets add radiobutton -label [mc "None"] -activebackground #0F7FF2 -activeforeground white \
     -variable showConfig -underline 0 -value "None"
 .menubar.widgets add separator
 
@@ -817,6 +838,10 @@ set widgetlist { \
     { "IPv6 Routing table" "netstat -6 -rn" } \
     { "RIP routes info" "vtysh -c \"show ip rip\"" } \
     { "RIPng routes info" "vtysh -c \"show ipv6 ripng\"" } \
+    { "OSPF show ip ospf" "vtysh -c \"show ip ospf\"" } \
+    { "OSPF show ip ospf route" "vtysh -c \"show ip ospf route\"" } \
+    { "OSPF show ip route ospf" "vtysh -c \"show ip route ospf\"" } \
+    { "OSPF show ip ospf neighbor" "vtysh -c \"show ip ospf neighbor\"" } \
     { "Process list" "ps ax" } \
     { "IPv4 sockets" "netstat -4 -an" } \
     { "IPv6 sockets" "netstat -6 -an" } \
@@ -828,11 +853,11 @@ set widgetlist { \
 }
 
 foreach widget $widgetlist {
-    .menubar.widgets add radiobutton -label [lindex $widget 0] \
+    .menubar.widgets add radiobutton -label [lindex $widget 0] -activebackground #0F7FF2 -activeforeground white \
 	-variable showConfig -underline 0 -value [lindex $widget 1]
 }
 
-.menubar.widgets add command -label [mc "Custom..."] \
+.menubar.widgets add command -label [mc "Custom..."] -activebackground #0F7FF2 -activeforeground white \
     -underline 0 -command {
     global showConfig
     set w .entry1
@@ -882,32 +907,32 @@ if {0} {
 # Events
 #
 menu .menubar.events -tearoff  0
-.menubar.events add command -label "Start scheduling" -underline 0 \
+.menubar.events add command -label "Start scheduling" -underline 0 -activebackground #0F7FF2 -activeforeground white \
 	-state normal -command "startEventScheduling"
-.menubar.events add command -label "Stop scheduling" -underline 1 \
+.menubar.events add command -label "Stop scheduling" -underline 1 -activebackground #0F7FF2 -activeforeground white \
 	-state disabled -command "stopEventScheduling" 
 .menubar.events add separator	
-.menubar.events add command -label [mc "Event editor"] -underline 0 \
+.menubar.events add command -label [mc "Event editor"] -underline 0 -activebackground #0F7FF2 -activeforeground white \
 	-command "elementsEventsEditor"
 #
 # Experiment
 #
 menu .menubar.experiment -tearoff 0
-.menubar.experiment add command -label "Execute" -underline 0 \
+.menubar.experiment add command -label "Execute" -underline 0 -activebackground #0F7FF2 -activeforeground white \
 	-command "setOperMode exec"
-.menubar.experiment add command -label "Terminate" -underline 0 \
+.menubar.experiment add command -label "Terminate" -underline 0 -activebackground #0F7FF2 -activeforeground white \
 	-command "setOperMode edit" -state disabled
-.menubar.experiment add command -label "Restart" -underline 0 \
+.menubar.experiment add command -label "Restart" -underline 0 -activebackground #0F7FF2 -activeforeground white \
 	-command "setOperMode edit; setOperMode exec" -state disabled
 .menubar.experiment add separator	
-.menubar.experiment add command -label [mc "Attach to experiment"] -underline 0 \
+.menubar.experiment add command -label [mc "Attach to experiment"] -underline 0 -activebackground #0F7FF2 -activeforeground white \
 	-command "attachToExperimentPopup" 
 
 #
 # Help
 #
 menu .menubar.help -tearoff 0
-.menubar.help add command -label [mc "About"] -command {
+.menubar.help add command -label [mc "About"] -activebackground #0F7FF2 -activeforeground white -command {
     toplevel .about
     wm title .about [mc "About IMUNES"]
     wm minsize .about 454 255
@@ -956,9 +981,11 @@ menu .menubar.help -tearoff 0
     bind $mainFrame.github <Leave> "%W configure -foreground black; \
 	$mainFrame config -cursor arrow"
 }
-
+#
+# Traduccion
+#
 ###-------------------------------------------------------------------
-.menubar.help add command -label [mc "Translation Credit"] -command {
+.menubar.help add command -label [mc "Translation Credit"] -activebackground #0F7FF2 -activeforeground white -command {
 	toplevel .translation
     wm title .translation [mc "About Translation Credit"]
     wm minsize .translation 300 300
@@ -1025,33 +1052,63 @@ menu .menubar.help -tearoff 0
 }
 
 #
-# Language menu y submenu puesto por mi, no funciona aun falta programas la logica.
+# menu idiomas
 #
-menu .menubar.idiom -tearoff 0
+###*********************************************************************
+menu .menubar.idiomas
+	global setIdioma
+	global setIdiomanew 
+	set setIdioma "$language"
+	set setIdiomanew ""
 
-set m .menubar.idiom.typeIdiom
-menu $m -tearoff 0
-.menubar.idiom add cascade -label [mc "Idiom"] -menu $m -underline 5
-    $m add radiobutton -label [mc "German"] -variable typeIdiom \
-	-value en -command { updateIdiom; }
-    $m add radiobutton -label [mc "English"] -variable typeIdiom \
-	-value en -command { updateIdiom; }
-	$m add radiobutton -label [mc "Spanish"] -variable typeIdiom \
-	-value en -command { updateIdiom; }
-	$m add radiobutton -label [mc "French"] -variable typeIdiom \
-	-value en -command { updateIdiom; }
-	$m add radiobutton -label [mc "Croata"] -variable typeIdiom \
-	-value en -command { updateIdiom; }
-	$m add radiobutton -label [mc "Hungarian"] -variable typeIdiom \
-	-value en -command { updateIdiom; }
-	$m add radiobutton -label [mc "Italian"] -variable typeIdiom \
-	-value en -command { updateIdiom; }
-	$m add radiobutton -label [mc "Portuguese"] -variable typeIdiom \
-	-value en -command { updateIdiom; }
-	$m add radiobutton -label [mc "Russian"] -variable typeIdiom \
-	-value en -command { updateIdiom; }
-###---------------------------------------------------------------------
+	.menubar.idiomas add radiobutton -label [mc "$language"] -activebackground #0F7FF2 -activeforeground white \
+	-variable setIdioma -underline 0 -value "$language"
+	.menubar.idiomas add separator
 
+	set  idiomalist { \
+		{ "German"		"de_DE" } \
+		{ "English"		"en_EN" } \
+		{ "Spanish"		"es_ES" } \
+		{ "French"		"fr_FR" } \
+		{ "Croatian"	"hr_HR" } \
+		{ "Hungarian"	"hu_HU" } \
+		{ "Italian"		"it_IT" } \
+		{ "Portuguese"	"pt_PT" } \
+		{ "Russian"		"ru_RU" } \
+	}
+ 
+	foreach idioma $idiomalist {
+		.menubar.idiomas add radiobutton \
+		-label [mc [lindex $idioma 0]] -activebackground #0F7FF2 -activeforeground white \
+		-variable setIdioma -underline 0 -value [lindex $idioma 1] \
+		-command ::saveOptions     
+		
+	}
+
+	proc saveOptions { } {
+		global config
+		global idiomalist
+		global idioma
+		global idiomaprefix
+		global setIdioma
+
+		set fh [open "/usr/local/lib/imunes/gui/setidioma.txt" w+]
+		set setIdiomanew [lindex [split $setIdioma {_}] 0]
+		puts -nonewline $fh "$setIdiomanew"
+		close $fh
+
+		set fp [open "/usr/local/lib/imunes/gui/setidioma.txt" r]
+		set file_data [read $fp]
+		puts $file_data
+		close $fp
+	}
+
+	if {0} {
+		.menubar.idiomas add separator
+		.menubar.idiomas add radiobutton -label [mc "Route"] \
+		-variable setIdioma -underline 0 -value "route"
+	}
+###*********************************************************************
 #
 # Left-side toolbar
 #
