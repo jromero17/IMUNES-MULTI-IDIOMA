@@ -5,7 +5,7 @@ Saludos a toda la comunidad IMUNES
 
 Como profesor universitario tengo muchos años usando IMUNES como herramienta principal para las enseñanza de las Redes IP. En la Universidad donde trabajo (UPT-Aragua VENEZUELA) hemos realizados muchos proyectos alrededor de IMUNES agregandoles muchas otras aplicaciones, por ahora les comparto la Versión de IMUNES Multi Idiomas Internacionalizada o Localizada como se les dice tambien.
 
-Ahora esta nueva versión tiene soporte para imagenes .svg, es decir, se reemplazan las imagenes .git, por imagenes .svg, con una mejor resolucón y calidad de las imagenes, de tal manera de mejorar la visualización de los iconos de los equipos router, switch, pc, host en otros, también se le agrega dos nuevos themes de color oscuro, que facilitarán el trabajo en horas nocturnas y brindará un mejor confor en el trabajo continuo. 
+Ahora esta nueva versión tiene soporte para imagenes .svg, es decir, se reemplazan las imagenes .git, por imagenes .svg, con una mejor resolucón y calidad de las imagenes, de tal manera de mejorar la visualización de los iconos de los equipos router, switch, pc, host en otros, también se le agrega dos nuevos themes de color oscuro, que facilitarán el trabajo en horas nocturnas y brindará un mejor confort en el trabajo continuo. 
 
 Estoy buscando colaboradores para traducir fidelignamente a IMUNES, en diferentes idiomas preferiblemente Alemán, Francés, Italiano, Croata, Húngaro, Portugués y Ruso. Por consiguiente las personas interesadas deberan ser de la Nacionalidad en cuestion, trabajar en el área y conocer a IMUNES preferiblemente, sin embargo, esta abierta la opción para todos.
 
